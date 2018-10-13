@@ -104,6 +104,15 @@ manager.
     Using Clang appears to be a requirement for OpenBSD, otherwise fonts
     would not build.
 
+    You may have installed a specific version of Clang ( i.e. clang-m.n
+    where 'm' is the major version, and n is the sub-version):
+        user@host:~/godot$ sudo apt-get install clang-m.n
+
+    If so, you may still get "clang not found" or "clang++ not found" errors during compilation.
+    In that case, create symbolic links to those commands as follows:
+        user@host:~/godot$ sudo ln -s /usr/bin/clang-m.n /usr/bin/clang
+        user@host:~/godot$ sudo ln -s /usr/bin/clang++-m.n /usr/bin/clang++
+
 .. note:: If you are compiling Godot for production use, then you can
           make the final executable smaller and faster by adding the
           SCons option ``target=release_debug``.
